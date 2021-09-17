@@ -131,3 +131,136 @@ Use Azure Bot Service when a virtual agent is needed to interact with humans usi
 
 Use Azure Cognitive Services for general purpose tasks, like text to speech, integrating with search or object identification. Benefit from the work Microsoft already did to train and test the models needed.
 
+### Will your app predict future outcomes based on private historical data?
+
+Use Azure Machine Learning when data need analyzation for predicting future outcomes. Since you'll be working with proprietary data, you'll need to build custom-tailored models. With that...
+
+### Do you need to build a model by using your own data or perform a different task than those listed above?
+
+We use Azure Machine Learning as we have the greatest flexibility and engineers can use the tools they're familiar with to develop models needed.
+
+# Choose the Best Azure Serverless Technology for your Business Scenario
+
+_Serverless computing_ is a term used for an execution environment that is provisioned and managed by the provider.
+
+## Identify the Product Options
+
+With serverless computing there is no maintaining servers, configuring infrastructure and maintaining it is handled by the provider, like scaling and performance. Serverless apps are event-driven and they only run when triggered.
+
+### Azure Functions
+
+Host a single method/function by using a programming language (C#, Python, JavaScript, Java, Powershell) that runs on an event, like an HTTP request, message queue, or a timer.
+
+Scales automatically and billed only when the function is triggered, which is great for variable demand. It is stateless and behaves as if restarted everytime it is triggered but can be stateful by connecting an Azure storage account to it, thus making it a **Durable Function**.
+
+### Azure Logic Apps
+
+Low-code/no-code development platform hosted as a cloud service. Covers app integration, data integration, system integration, enterprise application integration (EAI) and business-to-business (B2B) integration.
+
+Designed in a web-based designer and executed by Azure services without writing code. Link triggers to action with connectors and you got yourself an app! 
+
+* Trigger is an event
+* Action is a task to execute
+
+If there is no action or connector to your need you can always build your own, now you got to code!
+
+### What are the differences between these services?
+
+Azure Functions is a serverless compute server and Azure Logic Apps is a serverless orchestration service. Azure Functions can be used to orchestrate long-running business processes (Durable Function), that's not its primary use case when it was designed.
+
+Azure Function is billed per execution and running time of each execution while Logic Apps is per execution and **type of connectors** it utitlizes.
+
+## Analyze the Decision Criteria
+
+### Do you need to perform an orchestration across well-known APIs?
+
+Azure Logic Apps -- though you can do it with Azure Functions, it would take more time as you'd have to know what API's to use and orchestration was not its primary designed purpose.
+
+### Do you need to execute custom algorithms or perform specialized data parsing and data lookups?
+
+Azure Functions
+
+### Do you have existing automated tasks written in an imperative programming language?
+
+Azure Functions
+
+# Choose the Best Tools to Help Organizations Build Better Solutions
+
+Microsoft has a comprehensive set of tools to implement DevOps practices, solutions and save money.
+
+## Understand Your Product Options
+
+Software devs/operations pros create working software systems to meet the orgs needs but their short-term objectives can result in technical issues, delays and downtime.
+
+Cue, DevOps, helps align technical teams as they work toward common goals by employing practices and processes to automate ongoing development, maintenance and deployment. Expedite releases and ensure changes are of exceptional quality.
+
+DevOps practices touches on software development lifecycle, planning, project management, and collab with software devs/operations/and qa. **It's a fundamental mindset shift from the top down** not just installing some tools and be like DevOps baby! (͠≖ ͜ʖ͠≖)
+
+## Product options
+
+### Azure DevOps Services
+
+A suite of services that addresses every stage of the development lifecycle.
+
+* **Azure Repos** is a source-code repository like GitHub/Bitbucket
+* **Azure Boards** is an agile project management suite like JIRA
+* **Azure Pipelines** is an automational tool for CI/CD like Jenkins/GitLab
+* **Azure Artifacts** is a repo to host artifacts like JFrog's Artifactory
+* **Azure Test Plans** is an automated test tool to ensure quality in the CI/CD pipeline like TestRail
+
+Started off as an on-premises software and evolved to be a SaaS.
+
+### GitHub and GitHub Actions
+
+Git is a decentralized source-code management tool and GitHub is the host version of Git serving as a primary remote.
+
+* A shared source-code repository
+* Facilitates project management
+* Supports issue reporting, discussion and tracking
+* Features CI/CD pipeline
+* Includes a wiki for documentation
+* Can be on-premises of in the cloud
+
+GitHub Actions enables workflow automation with triggers for lifecycle events like automating a CI/CD _toolchain_.
+
+> **Toolchain**  
+> Combination of software tools that aid in the delivery, development and management of software applications throughout the development lifecycle
+
+The output of one tool in the chain is the input for the next tool in the chain. 
+
+So Azure DevOps or GitHub? Not a straightforward answer. GitHub is light-weight and trusted by thousands of open-source project owners, big focus on individual developers. Azure DevOps is more enterprise level, heavy on the project-management and planning tools with a more finer-grained access control. 
+
+In the end you're not tied to one or the other, you can use GitHub for your repos and Azure Boards for your project management, mix-and-match baby!
+
+### Azure DevTest Labs
+
+Provides an automated means of managing the process of building, setting up, and tearing down VMs containing build of software projects. Not limited to VMs, can be applied to anything deployed to Azure via an ARM template.
+
+## Analyze the decision criteria
+
+### Do you need to automate and manage test-lab creation?
+
+Azure DevTest Labs, but can automate provisioning as part of a toolchain by using Azure Pipelines or Github Actions
+
+### Are you building open-source software?
+
+GitHub -- long been the preferred host for open-source though it can be done via public repos in Azure DevOps.
+
+### Regarding source-code management and DevOps tools, what level of granularity do you need for permissions?
+
+Github is a model of read/write permissions.
+Azure DevOps is a set of granular permissions to refine who is able to perform operations across the tollset.
+
+### Regarding source-code management and DevOps tools, how sophisticated does your project management and reporting need to be?
+
+Azure DevOps is highly customizable which allows for the addition of custom fields to capture metadata and other information.
+
+# Choose the Best Tools for Managing and Configuring Your Azure Environment
+
+By using Azure maangement tools -- administrators, developers and managers can interact with the cloud environment to perform tasks like:
+
+* Deploying dozens of hundreds of resources at a time
+* Configuring individual services programmatically
+* Viewing rich reports acorss usage, health, costs and more
+
+## Identify the Product Options
