@@ -264,3 +264,40 @@ By using Azure maangement tools -- administrators, developers and managers can i
 * Viewing rich reports acorss usage, health, costs and more
 
 ## Identify the Product Options
+
+Visual tools provide full, visually friendly access to all the functionality of Azure, not very useful when doing large deployments of resources with interdependencies and configurations options.
+
+A code-based tool is better suited to quickly set up and configure Azure resources, as the commands and parameters used can be save into files for reusability. Another factor is the code can stored, versioned and maintained along with the source code in a source code repository. 
+
+> **Infrastructure as Code**  
+> Managing hardware and cloud resources via code
+
+**Imperative code** details each step to be performed to achieve the desired outcome, whereas **declarative code** only details the desired outcome and the interpreter decides best approach to achieve it.
+
+## Your product options
+
+### The Azure Portal
+
+A web-based UI for accessing all the features of Azure, with a friendly graphical UI to view services used, services to create, service configuration and reports.
+
+### The Azure Mobile App
+
+iOS and Android access to your Azure resources.
+
+* Monitor the health and status of your Azure resources
+* Check for alerts, quickly diagnose and fix issues and restart a web app or virtual machine (VM)
+* Run the Azure CLI or Azure PowerShell commands to manage your Azure resources
+
+### Azure Powershell
+
+A shell with which commands can be executed called cmdlets (command-lets). Invoking the Azure Rest API to perform management tasks within Azure which the cmdlets can be executed independently or part of a script (which can make the process automated/repeatable) to orchestrate:
+
+* Routine setup, teardown and maintenance of a single resource or multiple connected resources
+* Deployment of an entire infrastructure, which might have dozens/hundreds of imperative code resources
+
+Available for Windows, Linux and macOS ヽ( ͡ಠ ʖ̯ ͡ಠ)ﾉ -- also accessible via the web browser using Azure Cloud Shell.
+
+### The Azure CLI
+
+
+
