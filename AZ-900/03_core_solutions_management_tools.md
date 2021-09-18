@@ -1,4 +1,4 @@
-> [Azure Fundamentals Part 3: Describe Core Solutions and Management Tools in Azure](https://docs.microsoft.com/en-us/learn/paths/az-900-describe-core-solutions-management-tools-azure/)
+> [Azure Fundamentals Part 3: Describe Core Solutions and Management Tools in Azure](https://docs.microsoft.com/en-us/learn/paths/az-900-describe-core-solutions-management-tools-azure)  
 > Microsoft Learn
 
 [TOC]
@@ -10,7 +10,7 @@
 IoT enables devices to gather and then relay information for data analysis. 
 Commons sensors
 
-* * Environmentsl sensors that capture temperature and humidity levels
+* Environmentsl sensors that capture temperature and humidity levels
 * Barcode, QR code, OCR (optical character recognition) scanners
 * Geo-location and proximity sensors
 * Ligh, color and ifrared sensors
@@ -196,9 +196,9 @@ Cue, DevOps, helps align technical teams as they work toward common goals by emp
 
 DevOps practices touches on software development lifecycle, planning, project management, and collab with software devs/operations/and qa. **It's a fundamental mindset shift from the top down** not just installing some tools and be like DevOps baby! (͠≖ ͜ʖ͠≖)
 
-## Product options
+### Product options
 
-### Azure DevOps Services
+#### Azure DevOps Services
 
 A suite of services that addresses every stage of the development lifecycle.
 
@@ -210,7 +210,7 @@ A suite of services that addresses every stage of the development lifecycle.
 
 Started off as an on-premises software and evolved to be a SaaS.
 
-### GitHub and GitHub Actions
+#### GitHub and GitHub Actions
 
 Git is a decentralized source-code management tool and GitHub is the host version of Git serving as a primary remote.
 
@@ -232,7 +232,7 @@ So Azure DevOps or GitHub? Not a straightforward answer. GitHub is light-weight 
 
 In the end you're not tied to one or the other, you can use GitHub for your repos and Azure Boards for your project management, mix-and-match baby!
 
-### Azure DevTest Labs
+#### Azure DevTest Labs
 
 Provides an automated means of managing the process of building, setting up, and tearing down VMs containing build of software projects. Not limited to VMs, can be applied to anything deployed to Azure via an ARM template.
 
@@ -274,13 +274,13 @@ A code-based tool is better suited to quickly set up and configure Azure resourc
 
 **Imperative code** details each step to be performed to achieve the desired outcome, whereas **declarative code** only details the desired outcome and the interpreter decides best approach to achieve it.
 
-## Your product options
+### Your Product Options
 
-### The Azure Portal
+#### The Azure Portal
 
 A web-based UI for accessing all the features of Azure, with a friendly graphical UI to view services used, services to create, service configuration and reports.
 
-### The Azure Mobile App
+#### The Azure Mobile App
 
 iOS and Android access to your Azure resources.
 
@@ -288,7 +288,7 @@ iOS and Android access to your Azure resources.
 * Check for alerts, quickly diagnose and fix issues and restart a web app or virtual machine (VM)
 * Run the Azure CLI or Azure PowerShell commands to manage your Azure resources
 
-### Azure Powershell
+#### Azure Powershell
 
 A shell with which commands can be executed called cmdlets (command-lets). Invoking the Azure Rest API to perform management tasks within Azure which the cmdlets can be executed independently or part of a script (which can make the process automated/repeatable) to orchestrate:
 
@@ -297,7 +297,83 @@ A shell with which commands can be executed called cmdlets (command-lets). Invok
 
 Available for Windows, Linux and macOS ヽ( ͡ಠ ʖ̯ ͡ಠ)ﾉ -- also accessible via the web browser using Azure Cloud Shell.
 
-### The Azure CLI
+#### The Azure CLI
 
+An executable program to execute commands in Bash ┏( ͡° ͜ʖ ͡°)┛ which call the Azure Rest API to perform management tasks within Azure. As with Azure Powershell the commands can be ran independently or in a script. 
 
+Azure PowerShell and Azure CLI are identical in what they can do, it's just down to preference and what you already know.
 
+#### ARM Templates
+
+Imperative code can be written in Azure PowerShell / CLI for the provisioning. deprovisioning  and orchestration of resources but there exists a better method.
+
+Azure Resource Manager (ARM templates) allow one to describe the resources wanted in a declarative JSON format. The template is verified before execution to validate resource creation and interconnectivity, which then orchestrates the creation of the resources in parallel. 
+
+Just define the desired state and configuration for each resource and the template does the rest. PowerShell and Bash scripts can also be executed before or after a resource has been provisioned.
+
+# Choose the Best Monitoring Service for Visibility, Insight and Outage Mitigation
+
+Today's software running in the cloud is complex and wanting to see health and performance metrics across all of its layers can be challenging. Microsoft has just the solutions to be quick to react on outages, look into intermittent issues, optimize usage and be proactive in handling future downtime.
+
+## Identify your Product Options
+
+Several basic questions or concerns face all companies that use the cloud.
+
+* Are we using the cloud correctly? Can we squeeze more performance out of our cloud spend?
+* Are we spending more than we need to?
+* Do we have our systems properly secured?
+* How resilient are our resources? If we experience a regional outage, could we fail over to another region?
+* How can we diagnose and fix issues that occur intermittently?
+* How can we quickly determine the cause of an outage?
+* How can we learn about planned downtime?
+
+By using a combination of monitoring solutions on Azure, you can:
+
+* Gain answers, insights, and alerts to help ensure that you've optimized your cloud usage.
+* Ascertain the root cause of unplanned issues.
+* Prepare ahead of time for planned outages.
+
+### The Product Options
+
+#### Azure Advisor
+
+Evaluates Azure resources and makes recommendations to help improve reliability, security, performance, achieve operation excellence and reduce costs -- designed to help save time on cloud optimization.
+
+Recommendations produced by Azure Advisor are available in the portal and the API. Notifcations can be set up to alert on new recommendations.
+
+In the portal, Advisor dashboard displays personalized recommendations for all subscriptions and can be filtered by specific subscription, resource group or service; divided into five categories:
+
+* Reliability: Used to ensure and improve the continuity of your business-critical applications.
+* Security: Used to detect threats and vulnerabilities that might lead to security breaches.
+* Performance: Used to improve the speed of your applications.
+* Cost: Used to optimize and reduce your overall Azure spending.
+* Operational Excellence: Used to help you achieve process and workflow efficiency, resource manageability, and deployment best practice
+
+#### Azure Monitor
+
+Platform for collecting, analyzing, visualizing and maybe taking action based on metric/logging data from Azure/on-premises environment.
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000;">
+	<img src="./assets/azure_monitor.png" />
+	<p>
+		<small>(⌐▀͡ ̯ʖ▀)</small>
+	</p>
+</div>
+
+* On the left is a list of the sources of logging and metric data that can be collected at every layer in the application architecture, from application to operating system and network.
+* In the center, logging and metric data is stored in central repositories.
+* On the right, the data is used in a number of ways. View real-time and historical performance across each layer of the architecture, or aggregated and detailed information. Data is displayed at different levels for different audiences. View high-level reports on the Azure Monitor Dashboard or create custom views by using Power BI and Kusto queries.
+
+Can have alerts delivered for critical events in real time through SMS, email and other methods.
+
+Products like Azure Applucation Insights, which is a service for sending telemetry info from application source code to Azure, uses Azure Monitor under the hood. Application Insights allows developers to take advantage of powerful data-analysis in Azure Monitor to diagnose errors without waiting on users to report them.
+
+#### Azure Service Health
+
+Provides a personalized view of the Azure services, regions and resource the organization rely on. While status.azure.com displays major issues, Azure Service Health displays both major and minor issues which are localized.
+
+Service Health helps you keep an eye on several event types:
+
+* **Service issues** are problems in Azure, such as outages, that affect you right now. You can drill down to the affected services, regions, updates from your engineering teams, and find ways to share and track the latest information.
+* **Planned maintenance** events can affect your availability. You can drill down to the affected services, regions, and details to show how an event will affect you and what you need to do. Most of these events occur without any impact to you and aren't shown here. In the rare case that a reboot is required, Service Health allows you to choose when to perform the maintenance to minimize the downtime.
+* **Health advisories** are issues that require you to act to avoid service interruption, including service retirements and breaking changes. Health advisories are announced far in advance to allow you to plan.
