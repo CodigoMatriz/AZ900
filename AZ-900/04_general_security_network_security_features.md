@@ -1,6 +1,8 @@
 > [Azure Fundamentals Part 4: Describe General Security and Network Security Features](https://docs.microsoft.com/en-us/learn/paths/az-900-describe-general-security-network-security-features/)  
 > Microsoft Learn
 
+[TOC]
+
 # Protect Against Security Threats on Azure
 
 Security, a small word for a significant concept with so many factors to consider in order to protect your applications and data.
@@ -71,3 +73,23 @@ Configure monitoring for changes on important files, registry settings, applicat
 Able to have a centralized view of security alerts with the ability to dismiss false alerts, investigate further, remediate alerts manually or use an automated response with _workflow automation_. 
 
 Workflow automation uses Azure Logic Apps and Security Center connectors to trigger by a threat detection alert or Security Center recommendation. Can configure the logic app to run an action like send an email or post a message to a Microsoft Teams channel (I prefer Slack).
+
+# Detect and Respond to Security Threats by Using Azure Sentinel
+
+Large scale security management can benefit from a dedicated security information and event management (SIEM) system, which aggregates security data from different sources that support an open-standard logging format.
+
+## Azure Sentinel capabilities
+
+Azure Sentinel is Microsfot cloud-based SIEM.
+
+* **Collect cloud data at scale**  
+Collect data across all users, devices, applications and infrastructure (on-premise / cloud)
+* **Detect previously undetected threats**  
+Minimize false poisitives by using Microsoft's comprehensive analytics and threat intellifence
+* **Investigate threats with artificial intelligence**  
+Examine suspicious activities at scale, tapping into years of cybersecurity experience from Microsoft
+* **Respond to incidents rapidly**  
+Use built-in orchestration and automation of common tasks
+
+## Connect Your Data Sources
+
