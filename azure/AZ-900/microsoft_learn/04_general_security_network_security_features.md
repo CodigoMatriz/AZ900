@@ -74,6 +74,8 @@ Able to have a centralized view of security alerts with the ability to dismiss f
 
 Workflow automation uses Azure Logic Apps and Security Center connectors to trigger by a threat detection alert or Security Center recommendation. Can configure the logic app to run an action like send an email or post a message to a Microsoft Teams channel (I prefer Slack).
 
+
+
 ## Detect and Respond to Security Threats by Using Azure Sentinel
 
 Large scale security management can benefit from a dedicated security information and event management (SIEM) system, which aggregates security data from different sources that support an open-standard logging format.
@@ -124,6 +126,8 @@ Azure Monitor Playbook can be used to automate responses to threats, like settin
 When **Block** is chosen, the IP address is blocked in the firewall and the user disabled in Azure Active Directory.
 When **Ignore** is chosen, the alert is closed in Azure Sentinel and in the IT ticketing system.
 
+
+
 ## Store and Manage Secrets by Using Azure Key Vault
 
 Azure Key Vault is a centralized cloud service for storing an application's secrets in a single, central location with secure access with access control and logging capabilities.
@@ -159,6 +163,8 @@ Key Vault makes it easier to enroll and renew certificates from public certifica
 * **Integration with Other Azure Services**  
 You can integrate Key Vault with storage accounts, container registries, event hubs, and many more Azure services. These services can then securely reference the secrets stored in Key Vault.
 
+
+
 ## Host Your Azure Virtual Machines on Dedicated Physical Servers by Using Azure Dedicated Host
 
 VMs run on shared hardware that Microsoft manages, although the hardware is shared the workloads are isolated.
@@ -189,9 +195,136 @@ Charged per dedicated host, independent of how many VMs are deployed to it, pric
 
 Software licensing, storage and network usage are billed separately from the host and VMs.
 
+
+
 # Secure Network Connectivity on Azure
 
 ## What is Defense in Depth?
 
-Protect information and precent it from being stolen by those who aren't authorized to access it, by using a series of mechanisms to slow the advance of an attack.
+Protect information and prevent it from being stolen by those who aren't authorized to access it, by using a series of mechanisms to slow the advance of an attack.
 
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/defense_depth.png" />
+	<p><small>Layers of Defense in Depth</small></p>
+</div>
+
+Each layer provides protection so if one layer is breached, the subsequent layer prevents further exposure. Slows down the attack and provides alert telemetry so security teams can act on it automatically or manually.
+
+
+
+#### Physical Security
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/security_physical.png" />
+</div>
+
+Physically securing access to buildings and controlling access to computing hardware within the datacenter are the first line of defense.
+
+With physical security, the intent is to provide physical safeguards against access to assets. These safeguards ensure that other layers can't be bypassed, and loss or theft is handled appropriately. Microsoft uses various physical security mechanisms in its cloud datacenters.
+
+
+
+#### Identity and Access
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/security_identity_access.png" />
+</div>
+
+- Control access to infrastructure and change control.
+- Use single sign-on (SSO) and multifactor authentication.
+- Audit events and changes.
+
+The identity and access layer is all about ensuring that identities are secure, access is granted only to what's needed, and sign-in events and changes are logged.
+
+
+
+#### Perimeter
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/security_perimeter.png" />
+</div>
+
+- Use DDoS protection to filter large-scale attacks before they can affect the availability of a system for users.
+- Use perimeter firewalls to identify and alert on malicious attacks against your network.
+
+At the network perimeter, it's about protecting from network-based attacks against your resources. Identifying these attacks, eliminating their impact, and alerting you when they happen are important ways to keep your network secure.
+
+
+
+#### Network
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/security_network.png" />
+</div>
+
+- Limit communication between resources.
+- Deny by default.
+- Restrict inbound internet access and limit outbound access where appropriate.
+- Implement secure connectivity to on-premises networks.
+
+At this layer, the focus is on limiting the network connectivity across all your resources to allow only what's required. By limiting this communication, you reduce the risk of an attack spreading to other systems in your network.
+
+
+
+#### Compute
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/security_compute.png" />
+</div>
+
+- Secure access to virtual machines.
+- Implement endpoint protection on devices and keep systems patched and current.
+
+Malware, unpatched systems, and improperly secured systems open your environment to attacks. The focus in this layer is on making sure that your compute resources are secure and that you have the proper controls in place to minimize security issues.
+
+
+
+#### Application
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/security_application.png" />
+</div>
+
+- Ensure that applications are secure and free of vulnerabilities.
+- Store sensitive application secrets in a secure storage medium.
+- Make security a design requirement for all application development.
+
+Integrating security into the application development lifecycle helps reduce the number of vulnerabilities introduced in code. Every development team should ensure that its applications are secure by default.
+
+
+
+#### Data
+
+<div align="center" style="min-width: 700px; background: #FFF; color: #000">
+	<img src="./assets/security_data.png" />
+</div>
+
+In almost all cases, attackers are after data:
+
+- Stored in a database.
+- Stored on disk inside virtual machines.
+- Stored in software as a service (SaaS) applications, such as Office 365.
+- Managed through cloud storage.
+
+Those who store and control access to data are responsible for ensuring that it's properly secured. Often, regulatory requirements dictate the controls and processes that must be in place to ensure the confidentiality, integrity, and availability of the data.
+
+### Security Posture
+
+Your *security posture* is your organization's ability to protect from and respond to security threats. The common principles used to define a security posture are *confidentiality*, *integrity*, and *availability*, known collectively as CIA.
+
+- **Confidentiality**
+
+  The *principle of least privilege* means restricting access to information only to individuals explicitly granted access, at only the level that they need to perform their work. This information includes protection of user passwords, email content, and access levels to applications and underlying infrastructure.
+
+- **Integrity**
+
+  Prevent unauthorized changes to information:
+
+  - At rest: when it's stored.
+  - In transit: when it's being transferred from one place to another, including from a local computer to the cloud.
+
+  A common approach used in data transmission is for the sender to create a unique fingerprint of the data by using a one-way hashing algorithm. The hash is sent to the receiver along with the data. The receiver recalculates the data's hash and compares it to the original to ensure that the data wasn't lost or modified in transit.
+
+- **Availability**
+
+  Ensure that services are functioning and can be accessed only by authorized users. *Denial-of-service attacks* are designed to degrade the availability of a system, affecting its users.
