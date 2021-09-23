@@ -1,8 +1,12 @@
 > [CompTIA Network+ (N10-007) Bootcamp](https://www.udemy.com/course/networkplus/) 
 > Udemy
 
-# Networks and Their Basic Components
+[TOC]
 
+# Networks and Their Basic Components
+&nbsp;
+&nbsp;
+&nbsp;
 ## Overview of Networks
 
 > **Networks**  
@@ -30,7 +34,9 @@ With these networks up what type of traffic can go through them?
 * Messaging
 * VoIP
 * and many more!
-
+&nbsp;
+&nbsp;
+&nbsp;
 ## Network Components
 
 What comprises a network?
@@ -76,6 +82,81 @@ This is what connects everything, the cable/media breaks, your networks are gonn
 Take the internet, it's a massive series of WAN Links. If you were at home and connected to your network but had no WAN Link, you'd have no internet you would only have access to your local network (LAN) inside your home. 
 
 Connects an internal network to an external network.
-
+&nbsp;
+&nbsp;
+&nbsp;
 ## Network Resources
 
+How does data get moved around the network? It comes down to two main models:
+
+### Client/Server Model
+
+> Client/Server Model  
+> Uses dedicated server to provide access to files, scanners, printers and other resources
+
+Administration and backup is simple, as it's a centralized machine (server) where all the files are sitting on.
+
+#### Benefits
+
+* Centralized Administration
+* Easier Management
+* Better Scalability
+
+#### Drawbacks
+
+* Higher Cost
+* Requires Specialized OS
+* Requires Dedicated Resources
+
+### Peer-to-Peer Model
+
+> Peer-to-Peer Model  
+> Peers share resource (files/printers) directly with others
+
+Administration and backup is very difficult, as the files are located amongst different machines on the network.
+
+### Benefits
+
+* Lower Cost
+* No Dedicated Resources
+* No Specialized OS
+
+### Drawbacks
+
+* Decenralized Management
+* Inefficient for Large Networks
+* Poor Scalability
+&nbsp;
+&nbsp;
+&nbsp;
+## Network Geography
+
+So how can we connect to a network? Starting from the smallest type of network to the largest.
+
+### Personal Area Network (PAN)
+
+Smallest type of wired or wireless network and covers the least amount of area (few meters), like Bluetooth and USB.
+
+An example would be the Bluetooth on your mobile connecting to your car stereo, that's an established network between your car and your mobile phone.
+
+A USB hard drive connected to your computer is a personal area network as it is a serial connection.
+
+### Local Area Network (LAN)
+
+Connects components within a limited distance, about 100 meters/300 feet. They can consist of Ethernet (IEEE 802.3) or WiFi (IEEE 802.11) standards.
+
+An example would be the network you connect to at home, that's your home local area network.
+
+### Campus Area Network (CAN)
+
+Connects building-centric LANs across a university, industrial park or business park and covers many square miles and buildings.
+
+### Metropolitan Area Network (MAN)
+
+Connects scattered locations across a city or metro area which can cover about 25 miles. 
+
+### Wide Area Network (WAN)
+
+Connects geographically-disparate internal networks and consits of leased lines or Virtual Private Networks tunneled over the internet. Remember, the internet itself is a WAN, the LARGEST WAN. WAAAAAAAAN
+
+A company with two office at either side of the world can connect their local office private networks with each other via a private WAN connection.
