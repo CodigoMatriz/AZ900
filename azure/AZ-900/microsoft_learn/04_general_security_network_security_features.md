@@ -212,7 +212,7 @@ Each layer provides protection so if one layer is breached, the subsequent layer
 
 
 
-#### Physical Security
+### Physical Security
 
 <div align="center" style="min-width: 700px; background: #FFF; color: #000">
 	<img src="./assets/security_physical.png" />
@@ -224,7 +224,7 @@ With physical security, the intent is to provide physical safeguards against acc
 
 
 
-#### Identity and Access
+### Identity and Access
 
 <div align="center" style="min-width: 700px; background: #FFF; color: #000">
 	<img src="./assets/security_identity_access.png" />
@@ -238,7 +238,7 @@ The identity and access layer is all about ensuring that identities are secure, 
 
 
 
-#### Perimeter
+### Perimeter
 
 <div align="center" style="min-width: 700px; background: #FFF; color: #000">
 	<img src="./assets/security_perimeter.png" />
@@ -251,7 +251,7 @@ At the network perimeter, it's about protecting from network-based attacks again
 
 
 
-#### Network
+### Network
 
 <div align="center" style="min-width: 700px; background: #FFF; color: #000">
 	<img src="./assets/security_network.png" />
@@ -266,7 +266,7 @@ At this layer, the focus is on limiting the network connectivity across all your
 
 
 
-#### Compute
+### Compute
 
 <div align="center" style="min-width: 700px; background: #FFF; color: #000">
 	<img src="./assets/security_compute.png" />
@@ -279,7 +279,7 @@ Malware, unpatched systems, and improperly secured systems open your environment
 
 
 
-#### Application
+### Application
 
 <div align="center" style="min-width: 700px; background: #FFF; color: #000">
 	<img src="./assets/security_application.png" />
@@ -293,7 +293,7 @@ Integrating security into the application development lifecycle helps reduce the
 
 
 
-#### Data
+### Data
 
 <div align="center" style="min-width: 700px; background: #FFF; color: #000">
 	<img src="./assets/security_data.png" />
@@ -308,7 +308,7 @@ In almost all cases, attackers are after data:
 
 Those who store and control access to data are responsible for ensuring that it's properly secured. Often, regulatory requirements dictate the controls and processes that must be in place to ensure the confidentiality, integrity, and availability of the data.
 
-### Security Posture
+## Security Posture
 
 Your *security posture* is your organization's ability to protect from and respond to security threats. The common principles used to define a security posture are *confidentiality*, *integrity*, and *availability*, known collectively as CIA.
 
@@ -328,3 +328,8 @@ Your *security posture* is your organization's ability to protect from and respo
 - **Availability**
 
   Ensure that services are functioning and can be accessed only by authorized users. *Denial-of-service attacks* are designed to degrade the availability of a system, affecting its users.
+
+
+
+# Protect Virtual Networks by Using Azure Firewall
+
