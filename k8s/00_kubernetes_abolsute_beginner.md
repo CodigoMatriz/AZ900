@@ -1,5 +1,5 @@
 > KodeKloud  
-> Kubernetes for the Absolute Beginner
+> [Kubernetes for the Absolute Beginner](https://kodekloud.com/lessons/introduction-12/)
 
 # Kubernetes Overview
 
@@ -26,31 +26,28 @@ Advantages:
 
 ## Kubernetes Architecture
 
-> Nodes  
-> A physical / virtual worker machine where K8s is installed and containers are launched
+> ### Nodes
+> 
+> *A physical / virtual worker machine where K8s is installed and containers are launched*
 
 If the node fails, what happens? Application is down! (╥﹏╥) 
 Don't fear cause we have **clusters**.
-&nbsp;
-&nbsp;
 
-> Cluster  
-> Set of nodes grouped together
+> ### Cluster
+> 
+> *Set of nodes grouped together*
 
 If one node fails the application keeps chugging about as it can be accessed from the other nodes. Having multiple nodes also helps in sharing load.
 
 Cool, who's gonna manage all of this? (the cluster)
-&nbsp;
-&nbsp;
 
-> Master  
-> A node with k8s installed in it configured as a master that watches over the nodes in the cluster
+> ### Master
+> 
+> *A node with k8s installed in it configured as a master that watches over the nodes in the cluster*
 
 Watches over the nodes in the cluster and is responsible for the orchestration of containers on the worker nodes.
-&nbsp;
-&nbsp;
 
-**Components**
+### Components
 
 When installing Kubernetes the following components are installed:
 
