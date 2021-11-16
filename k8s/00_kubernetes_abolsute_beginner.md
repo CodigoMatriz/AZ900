@@ -57,3 +57,11 @@ When installing Kubernetes the following components are installed:
 * Container Runtime
 * Controller
 * Scheduler
+
+API Seriver acts as the front-end for Kubernetes which users, management devices and CLI's communicate with to interact with clusters.
+
+etcd is a distributed reliable Key-value store where Kubernetes stores all data used to manage the cluster. Responsible for implementing locks within the cluster to ensure there is no conflict between the masters.
+
+Scheduler is responsible for distributing work / containers across multiple nodes by looking for newly created containers.
+
+Controllers are the brains for orchestration.
