@@ -107,3 +107,62 @@ kubectl run nginx --image nginx
 kubectl get pods
 ```
 
+
+# Kubernetes Concepts – PODs, ReplicaSets, Deployments
+
+## Pods with YAML
+
+Kubernetes uses YAML files as inputs for the creation of objects and follows the following structure for the four top level fields:
+
+```yaml
+# pod-definition.yaml
+apiVersion: v1
+kind: Pod
+meadata:
+	name: myapp-pod
+	labels:
+		app: myapp
+		type: front-end
+spec:
+	containers:
+		- name: nginx-container
+			image: nginx
+```
+
+```sh
+# Command to create object using YAML
+kubectl create -f pod-definition.yaml
+```
+
+
+
+| Kind    | Version    |
+|:--------|:----------|
+| Pod  | v1         |
+| Service  | v1         |
+| ReplicaSet  | apps/v1         |
+| Deployment  | apps/v1         |
+
+---
+
+### `apiVersion` 
+*string*
+Defines the api version of Kubernetes to use to create the object
+
+---
+
+### `kind`
+*string*
+Refers to the type of object to be created
+
+---
+
+### `metadata`
+*dictionary*
+Definition data of the object like name, labels, etc. To note, you can only specify properties that Kubernetes expects under `metadata` but for `labels`, it can be a user defined key-value pair.
+
+---
+
+### `spec`
+*dictionary*
+Defines the specification for the object kind to be created.
