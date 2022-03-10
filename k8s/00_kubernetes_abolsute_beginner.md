@@ -166,3 +166,31 @@ Definition data of the object like name, labels, etc. To note, you can only spec
 ### `spec`
 *dictionary*
 Defines the specification for the object kind to be created.
+
+## Replication Controllers and ReplicaSets
+
+Controllers are the brains behind Kubernetes, processes that monitor Kubernetes objects. 
+
+Replication Controller helps us manage multiple instance of a single pod. Say you have an application in a pod and that goes ╮ (. ❛ ᴗ ❛.) ╭, you'd want to have another instance running so users don't lose access to the application.
+
+Even if using one instance, the Replication Controller will ensure that if the single pod goes unhealthy, a new pod instance is brought up. It makes it so our application has high availability, which also helps with load balancing and scaling. If the load increases we can spin up additional instances or even expand to new nodes within the cluster if resources start become limited.
+
+> ### ReplicationController  
+> Older technology which will be replaced by ReplicaSet
+
+> ### ReplicaSet  
+> The recommended way to setup replication
+
+```yaml
+# rc-definition.yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+	name: myapp-rc
+	labels:
+		app: myapp
+		type: front-end
+spec:
+	template:
+		
+```
