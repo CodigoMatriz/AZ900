@@ -26,7 +26,7 @@ Advantages:
 
 ## Kubernetes Architecture
 
-> ### Nodes
+>  ### Nodes
 > 
 > *A physical / virtual worker machine where K8s is installed and containers are launched*
 
@@ -58,10 +58,52 @@ When installing Kubernetes the following components are installed:
 * Controller
 * Scheduler
 
-API Seriver acts as the front-end for Kubernetes which users, management devices and CLI's communicate with to interact with clusters.
+API Server acts as the front-end for Kubernetes which users, management devices and CLI's communicate with to interact with clusters.
 
 etcd is a distributed reliable Key-value store where Kubernetes stores all data used to manage the cluster. Responsible for implementing locks within the cluster to ensure there is no conflict between the masters.
 
 Scheduler is responsible for distributing work / containers across multiple nodes by looking for newly created containers.
 
-Controllers are the brains for orchestration.
+Controllers are the brains for orchestration, which are responsible for noticing and responding when nodes / containers/ endpoints go down.
+
+Container Runtime is the underlying software used to run containers.
+
+kubelet is the agent that runs on each node in the cluster making sure that the containers are running on the nodes as expected.
+
+### Master vs Worker Nodes
+
+Workers nodes (minions) is where the containers are hosted.
+
+Master nodes have the kubelet agent resonsible for interacting with a master to provide health information on the worker nodes and carry out actions on them as well.
+
+All information gathered on the master node is stored in a key-value store using etcd.
+
+Also contains a controller and a scheduler.
+
+# Setup Kubernetes
+
+Can be setup locally directly on your host machine or a VM using solutions like **Minikube** (dev friendly) , **MicroK8s**, **Kubeadm** (production).
+
+Can be setup on the cloud using **Google Cloud Platform**, **Amazon Web Services**, **Azure**.
+
+MiniKube is developer friendly and good for testing purposes, as it bundles all the different components into a single image, providing a pre-configures single node Kubernetes cluster provided as an ISO image.
+
+# Kubernetes Concepts
+
+Kubernetes does not deploy containers directly on the worker nodes, instead are encapsulated into a Kubeneretes object known as a **Pod**.
+
+> ### Pod  
+> Single instance of an application, the smallest object than can be created in Kubernetes
+
+Pods share a 1:1 relation with container images running the application. If you need to scale up, you add more pods and remove pods to scale down.
+
+Pods can contain multiple images it doesn't have to just be one. For example like in the case of needing a helper container to go along with your application container.
+
+```sh
+# Creating a Pod // Image pulled from Dockerhub
+kubectl run nginx --image nginx
+
+# View Pods
+kubectl get pods
+```
+
