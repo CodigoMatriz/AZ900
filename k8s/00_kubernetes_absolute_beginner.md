@@ -1,6 +1,10 @@
 > KodeKloud  
 > [Kubernetes for the Absolute Beginner](https://kodekloud.com/lessons/introduction-12/)
 
+[TOC]
+
+---
+
 # Kubernetes Overview
 
 Kubernetes (K8s) built by Google but is now an open-source project (CNCF).
@@ -171,15 +175,13 @@ Defines the specification for the object kind to be created.
 
 Controllers are the brains behind Kubernetes, processes that monitor Kubernetes objects. 
 
-Replication Controller helps us manage multiple instance of a single pod. Say you have an application in a pod and that goes ╮ (. ❛ ᴗ ❛.) ╭, you'd want to have another instance running so users don't lose access to the application.
+Replication Controller / ReplicaSets helps us manage multiple instance of a single pod. Say you have an application in a pod and that goes ╮ (. ❛ ᴗ ❛.) ╭, you'd want to have another instance running so users don't lose access to the application.
 
-Even if using one instance, the Replication Controller will ensure that if the single pod goes unhealthy, a new pod instance is brought up. It makes it so our application has high availability, which also helps with load balancing and scaling. If the load increases we can spin up additional instances or even expand to new nodes within the cluster if resources start become limited.
+Even if using one instance, the Replication Controller / ReplicaSets will ensure that if the single pod goes unhealthy, a new pod instance is brought up. It makes it so our application has high availability, which also helps with load balancing and scaling. If the load increases we can spin up additional instances or even expand to new nodes within the cluster if resources start become limited.
 
-> ### ReplicationController  
-> Older technology which will be replaced by ReplicaSet
+### ReplicationController 
+Older technology which will be replaced by ReplicaSet
 
-> ### ReplicaSet  
-> The recommended way to setup replication
 
 ```yaml
 # rc-definition.yaml
@@ -192,5 +194,99 @@ metadata:
 		type: front-end
 spec:
 	template:
-		
+		metadata:
+			name: myapp-pod
+			labels:
+				app: myapp
+				type: front-end
+		spec:
+			containers:
+				- name: nginx-container
+					image: nginx
+	replicas: 3 
 ```
+
+```sh
+# Command to create the replication controller
+kubectl create -f rc-definition.yaml
+
+# Command to get replication controllers
+kubectl get replicationcontroller
+
+# Command to get pods
+kubectl get po
+```
+
+### ReplicaSet 
+The recommended way to setup replication
+
+Aside from the `apiVersion` and the `kind` differing from the YAML construct of the ReplicaController, a property that must be defined is a `selector`. 
+
+A `selector` defines what pods fall under the ReplicaSet. Though pods are defined in the `template` of the ReplicaSet, a ReplicaSet can manage pods *not* defined in the YAML configuration, like pods created prior to the ReplicaSet.
+
+```yaml
+# replicaset-definition.yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+	name: myapp-replicaset
+	labels:
+		app: myapp
+		type: front-end
+spec:
+	template:
+		metadata:
+			name: myapp-pod
+			labels:
+				app: myapp
+				type: front-end
+		spec:
+			containers:
+				- name: nginx-container
+					image: nginx
+	replicas: 3 
+	selector: 
+		matchLabels:
+			type: front-end
+```
+
+```sh
+# Command to create the replica set
+kubectl create -f replicaset-definition.yaml
+
+# Command to get replica sets
+kubectl get replicaset
+
+# Command to get pods
+kubectl get po
+```
+
+The `template` section is required in case of a pod failure; ReplicaSet needs to create a new one to keep with the `replicas` defined and to do so the ReplicaSet `template` section is required.
+
+#### Scaling
+
+There are three ways to scale a ReplicaSet if necessary:
+
+1. Edit the definition file and edit the `replicas` property and run the `kubectl replace` command to update the ReplicaSet  
+```sh
+kubectl replace -f replicaset-definition.yaml
+```
+
+2. Running the `kubectl scale` command and referencing how many replicas and the definition file / replicaset name.
+```sh
+# Definition File
+# Does not modify the original value in the file
+kubectl scale --replicas 6 -f replicaset-definition.yaml
+
+# ReplicaSet Name
+kubectl scale --replicas 6 -f replicaset myapp-replicaset
+```
+
+3. Can be setup by load -- but that was too advanced to cover for this section ༼☯﹏☯༽
+
+#### Labels and Selectors
+
+It is the key to help in managing the many different resources that are available within Kubernetes. In this instance, we may have hundreds of pods deployed and if we wish to monitor them via a ReplicationController / ReplicaSet we can do so via the labels we define on the pods at creation.
+
+## Deployments
+
